@@ -1,0 +1,36 @@
+# macos
+Icon?
+Thumbs.db
+.DS_Store
+
+# python
+__pycache__/
+
+# java script
+node_modules/
+
+# emacs
+*~
+\#*\#
+
+# latex
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fls
+*.log
+*.fdb_latexmk
+paperNotes.bib
+acs-si.bib
+
+# file formats not suitable for git due to their binary nature
+*.zip
+*.pkl
+*.docx
+*.pptx
+*.traj
+*.webarchive
+
+# for this project
+
