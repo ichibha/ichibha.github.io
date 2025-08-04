@@ -2,36 +2,33 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>「動かして理解する第一原理電子状態計算」サポートページ</title>
+    <title>サポートページ - 動かして理解する第一原理電子状態計算</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2em;
+        }
+        pre {
+            background: #f0f0f0;
+            padding: 0.5em;
+        }
+        code {
+            background: #eee;
+            padding: 2px 4px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>書籍『動かして理解する第一原理電子状態計算: DFTパッケージによるチュートリアル』サポートページ</h1>
-    </header>
+    <h1>書籍『動かして理解する第一原理電子状態計算』サポートページ</h1>
 
-    <section>
-        <h2>修正点</h2>
-        <p>現在のところ、報告されている修正点はありません。</p>
-        <!-- 修正点がある場合は以下のように追加できます
-        <ul>
-            <li>第○章○ページ: ○○の記述を「××」に修正</li>
-        </ul>
-        -->
-    </section>
+    <h2>修正点</h2>
+    <p>現在のところ、報告されている修正点はありません。</p>
 
-    <section>
-        <h2>Q&A</h2>
-        <dl>
-            <dt><strong>Q.</strong> SCF計算で以下のエラーが発生します:<br>
-                <code>Error in routine set_dft_from_name (1): unrecognized dft</code>
-            </dt>
-            <dd>
-                <strong>A.</strong> このエラーは、DFT汎関数が正しく指定されていない場合に発生します。<br>
-                入力ファイルの <code>&system</code> セクションに次の行を追加してください:<br>
-                <code>input_dft = "PBE"</code><br>
-                これにより、使用するDFT汎関数が正しく認識され、SCF計算が正常に実行されます。
-            </dd>
-        </dl>
-    </section>
+    <h2>Q&A</h2>
+    <p><strong>Q.</strong> SCF計算で以下のエラーが発生します：</p>
+    <pre>Error in routine set_dft_from_name (1): unrecognized dft</pre>
+    <p><strong>A.</strong> 入力ファイルの <code>&system</code> セクションに次の行を追加してください：</p>
+    <pre>input_dft = "PBE"</pre>
+    <p>これによりDFT汎関数が正しく認識され、SCF計算が実行されます。</p>
 </body>
 </html>
