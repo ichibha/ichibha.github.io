@@ -1,8 +1,3 @@
----
-layout: none
-title: Q&A
----
-
 # Q&A
 
 **Q1.** SCF計算で以下のエラーが発生します：
