@@ -5,8 +5,6 @@ title: Quantum ESPRESSO インストール・エラー対応まとめ
 
 # Quantum ESPRESSO インストール・エラー対応まとめ （2025年8月19日更新分）
 
-# Quantum ESPRESSO インストール・エラー対応まとめ （2025年8月19日更新分）
-
 ## 1. Windows（WSL2 / Ubuntu）でのインストール
 
 ### 1.1 Ubuntuバージョンによる違い
