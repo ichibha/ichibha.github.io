@@ -1,13 +1,17 @@
-#  2025年8月19日更新分
+### 注意: このファイルは見出しレベルを一段下げた後の版です
 
-## 1. Windows（WSL2 / Ubuntu）でのインストール
+# Quantum ESPRESSO インストール・エラー対応まとめ
 
-### 1.1 Ubuntuバージョンによる違い
+## 2025年8月19日更新分
+
+### 1. Windows（WSL2 / Ubuntu）でのインストール
+
+#### 1.1 Ubuntuバージョンによる違い
 
 * **Ubuntu 24.04** を使用するとエラーが発生（参考: [GitLab issue #684](https://gitlab.com/QEF/q-e/-/issues/684)）。
 * **Ubuntu 22.04.5** を使用すれば `apt install quantum-espresso` で正常に動作。ビルド不要のため最も簡単な方法。
 
-### 1.2 ソースコードからのビルド（Windows / WSL2）
+#### 1.2 ソースコードからのビルド（Windows / WSL2）
 
 * 参考にしたバージョン: **QE 7.3.1**
 * インストール手順例:
@@ -20,7 +24,7 @@ tar xvf qe-7.3.1-ReleasePack.tar.gz
 cd qe-7.3.1
 ```
 
-#### 修正作業
+##### 修正作業
 
 `./external/mbd/src/mbd_c_api.F90` 内の `f_c_string` を `f2c_string` に置換。
 
@@ -29,7 +33,7 @@ cd qe-7.3.1
 
 （理由: `USE` で持ち込んだモジュールに同名の `f_c_string` が存在するため、衝突を回避）
 
-#### コンパイル
+##### コンパイル
 
 ```bash
 ./configure MPIF90=mpif90 FC=gfortran-15 MPICC=mpicc CC=gcc-15 CPP=cpp-15 FFLAGS="-I/usr/local/include/ -fallow-argument-mismatch"
@@ -39,9 +43,9 @@ make pwall
 
 ---
 
-## 2. Mac でのインストール
+### 2. Mac でのインストール
 
-### 2.1 ソースビルド
+#### 2.1 ソースビルド
 
 * gfortran と Mac のチップとの互換性で問題が発生しやすい。
 * `configure` 時の対処例:
@@ -64,7 +68,7 @@ make pwall
 
   に変更するとエラーを回避可能。
 
-### 2.2 代替手段
+#### 2.2 代替手段
 
 * **conda-forge** からプリコンパイル済みバイナリをインストール可能:
 
@@ -73,7 +77,7 @@ conda install -c conda-forge mamba
 mamba install -c conda-forge qe=7.4
 ```
 
-### 2.3 初回実行時の注意（Mac）
+#### 2.3 初回実行時の注意（Mac）
 
 * `pw.x` などを初めて実行すると macOS によってブロックされる。
 
@@ -81,9 +85,9 @@ mamba install -c conda-forge qe=7.4
 
 ---
 
-## 3. 実行時エラーと対処法
+### 3. 実行時エラーと対処法
 
-### 3.1 Ubuntu 24.04での実行エラー（例）
+#### 3.1 Ubuntu 24.04での実行エラー（例）
 
 ```
 Program received signal SIGABRT: Process abort signal.
@@ -93,7 +97,7 @@ Backtrace for this error:
 
 * **解決策**: Ubuntu 22.04 にダウングレード。
 
-### 3.2 `pw.x < nscf_dos.in` 実行時のエラー
+#### 3.2 `pw.x < nscf_dos.in` 実行時のエラー
 
 ```
 Error in routine tetra_init (13): cannot remap grid on k-point list
@@ -108,7 +112,7 @@ noinv = .true.
 
 ---
 
-## 4. Quantum ESPRESSO バージョン取得方法（過去分）
+### 4. Quantum ESPRESSO バージョン取得方法（過去分）
 
 * **7.3.1**
 
