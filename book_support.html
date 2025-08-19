@@ -1,34 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>サポートページ - 動かして理解する第一原理電子状態計算</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 2em;
-        }
-        pre {
-            background: #f0f0f0;
-            padding: 0.5em;
-        }
-        code {
-            background: #eee;
-            padding: 2px 4px;
-        }
-    </style>
 </head>
+
 <body>
     <h1>書籍『動かして理解する第一原理電子状態計算』サポートページ</h1>
-
-    <h2>修正点</h2>
-    <p>現在のところ、報告されている修正点はありません。</p>
-
-    <h2>Q&A</h2>
-    <p><strong>Q.</strong> SCF計算で以下のエラーが発生します：</p>
-    <pre>Error in routine set_dft_from_name (1): unrecognized dft</pre>
-    <p><strong>A.</strong> 入力ファイルの <code>&system</code> セクションに次の行を追加してください：</p>
-    <pre>input_dft = "PBE"</pre>
-    <p>これによりDFT汎関数が正しく認識され、SCF計算が実行されます。</p>
+    <ul>
+        <li><a href="qa.html">Q&A</a></li>
+        <li><a href="install_qe.html">Quantum ESPRESSO インストールガイド</a></li>
+    </ul>
 </body>
+
 </html>
