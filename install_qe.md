@@ -9,10 +9,12 @@
 * **Ubuntu 24.04** を使用するとエラーが発生（参考: [GitLab issue #684](https://gitlab.com/QEF/q-e/-/issues/684)）。
 * **Ubuntu 22.04.5** を使用すれば `apt install quantum-espresso` で正常に動作。ビルド不要のため最も簡単な方法。
 
-#### 1.2 ソースコードからのビルド（Windows / WSL2）
+> 注: Ubuntu 24.04 を使い続けたい場合は、次節 (1.2) の「ソースコードからのビルド」が **22.04.5 へのダウングレードの代替手段** になります。ビルドは手間が増えますが、OS を戻さずに回避可能です。
 
-* 参考にしたバージョン: **QE 7.3.1**
-* インストール手順例:
+#### 1.2 ソースコードからのビルド
+
+* バージョン: **QE 7.3.1**
+* インストール手順:
 
 ```bash
 brew install gcc fftw openblas open-mpi
@@ -29,8 +31,6 @@ cd qe-7.3.1
 * `call f_c_string(...)` → `call f2c_string(...)`
 * `subroutine f_c_string(...)` → `subroutine f2c_string(...)`
 
-（理由: `USE` で持ち込んだモジュールに同名の `f_c_string` が存在するため、衝突を回避）
-
 ##### コンパイル
 
 ```bash
@@ -39,7 +39,6 @@ cd qe-7.3.1
 make pwall
 ```
 
----
 
 ### 2. Mac でのインストール
 
@@ -83,34 +82,7 @@ mamba install -c conda-forge qe=7.4
 
 ---
 
-### 3. 実行時エラーと対処法
-
-#### 3.1 Ubuntu 24.04での実行エラー（例）
-
-```
-Program received signal SIGABRT: Process abort signal.
-Backtrace for this error:
-...
-```
-
-* **解決策**: Ubuntu 22.04 にダウングレード。
-
-#### 3.2 `pw.x < nscf_dos.in` 実行時のエラー
-
-```
-Error in routine tetra_init (13): cannot remap grid on k-point list
-```
-
-* **解決策**: `nscf_dos.in` の `&SYSTEM` セクションに以下を追記:
-
-```fortran
-nosym = .true.
-noinv = .true.
-```
-
----
-
-### 4. Quantum ESPRESSO バージョン取得方法（過去分）
+### 3. Quantum ESPRESSO バージョン取得方法（過去分）
 
 * **7.3.1**
 
@@ -122,8 +94,8 @@ noinv = .true.
   ```bash
   wget https://www.quantum-espresso.org/rdm-download/488/v7-2/4374c51f0d38b1be967fcf2a3bb298ef/qe-7.2-ReleasePack.tar.gz
   ```
-```
 
+* **6.8**
   ```bash
   wget https://www.quantum-espresso.org/rdm-download/488/v6-8/4374c51f0d38b1be967fcf2a3bb298ef/qe-6.8-ReleasePack.tgz
   ```
