@@ -1,3 +1,9 @@
+---
+layout: none
+title: Quantum ESPRESSO インストール・エラー対応まとめ
+---
+
+# Quantum ESPRESSO インストール・エラー対応まとめ （2025年8月19日更新分）
 
 # Quantum ESPRESSO インストール・エラー対応まとめ （2025年8月19日更新分）
 
@@ -121,7 +127,7 @@ noinv = .true.
   ```bash
   wget https://www.quantum-espresso.org/rdm-download/488/v7-2/4374c51f0d38b1be967fcf2a3bb298ef/qe-7.2-ReleasePack.tar.gz
   ```
-* **6.8**
+```
 
   ```bash
   wget https://www.quantum-espresso.org/rdm-download/488/v6-8/4374c51f0d38b1be967fcf2a3bb298ef/qe-6.8-ReleasePack.tgz
